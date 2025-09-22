@@ -27,10 +27,19 @@ class BoardArray : public Board {
                     array[j] = array[j - 1]; 
                 } 
                 array[pos] = *entry; ++index; 
-            } 
-            
+            } else { 
+                if (pos == SIZE){ 
+                    std::cout << entry->name << "'s score is too low to be added!"; 
+                } else { 
+                    for(int j = SIZE - 1; j > pos; --j){ 
+                        array[j] = array[j - 1]; 
+                    } 
+                    array[pos] = *entry; 
+                } 
+            }
+
             return;
-        }
+        };
 
         // TODO: IMPLEMENT THIS FUNCTION
         // ALGORITHM IS PROVIDED IN INSTRUCTIONS.TXT
