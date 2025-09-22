@@ -22,6 +22,13 @@ class BoardArray : public Board {
                 } 
             }
 
+            if (index < SIZE) { 
+                for (int j = index; j > pos; --j){ 
+                    array[j] = array[j - 1]; 
+                } 
+                array[pos] = *entry; ++index; 
+            } 
+            
             return;
         }
 
