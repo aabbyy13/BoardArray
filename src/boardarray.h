@@ -31,17 +31,14 @@ class BoardArray : public Board {
                 ++index; 
             } else { 
                 if (pos == SIZE){ 
-                    if(entry->compare(&array[SIZE - 1])) {
                     std::cout << entry->name << "'s score is too low to be added!" << endl; 
-                    return;
-                } 
-            }
-                
+                } else { 
                     for(int j = SIZE - 1; j > pos; --j){ 
                         array[j] = array[j - 1]; 
                     } 
                     array[pos] = *entry; 
                 } 
+            }
 
             return;
         };
