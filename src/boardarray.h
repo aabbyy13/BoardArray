@@ -15,8 +15,8 @@ class BoardArray : public Board {
 
         void add(Entry* entry) {
             int pos = index; 
-            
-            for(int i = 0; i < index; ++i){ 
+
+            for(int i = 1; i < index; ++i){ 
                 if(entry->compare(&array[i])){ 
                     pos = i; 
                     break; 
