@@ -16,7 +16,7 @@ class BoardArray : public Board {
         void add(Entry* entry) {
             int pos = index; 
 
-            for(int i = 1; i < index; ++i){ 
+            for(int i = 0; i < index; ++i){ 
                 if(entry->compare(&array[i])){ 
                     pos = i; 
                     break; 
@@ -31,14 +31,17 @@ class BoardArray : public Board {
                 ++index; 
             } else { 
                 if (pos == SIZE){ 
+                    if(entry->compare(&array[SIZE - 1])) {
                     std::cout << entry->name << "'s score is too low to be added!" << endl; 
-                } else { 
+                    return;
+                } 
+            }
+                
                     for(int j = SIZE - 1; j > pos; --j){ 
                         array[j] = array[j - 1]; 
                     } 
                     array[pos] = *entry; 
                 } 
-            }
 
             return;
         };
